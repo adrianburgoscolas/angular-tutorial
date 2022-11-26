@@ -22,6 +22,7 @@ export class CartComponent {
 
   onSubmit(): void {
     this.cartService.clearCart();
+    this.cartService.setBarNumItems();
     window.alert(`
 Your order has been submitted
 Name: ${this.checkoutForm.value?.name}

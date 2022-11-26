@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -7,6 +8,13 @@ import { Component } from '@angular/core';
 })
 export class TopBarComponent {
 
+  barNumItems: number = 0;
+
+  constructor(private cartService: CartService) {
+    cartService.numItems$.subscribe(numItems => {
+      this.barNumItems = numItems;
+    });
+  }
 }
 
 
