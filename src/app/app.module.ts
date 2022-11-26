@@ -11,6 +11,7 @@ import { ProductAlertComponent } from './product-alert/product-alert.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
+import { LinkStyleDirective } from './link-style.directive';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { ShippingComponent } from './shipping/shipping.component';
     ProductAlertComponent,
     ProductDetailsComponent,
     CartComponent,
-    ShippingComponent
+    ShippingComponent,
+    LinkStyleDirective,
   ],
   bootstrap: [
     AppComponent
