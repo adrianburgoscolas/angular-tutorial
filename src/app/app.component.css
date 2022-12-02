@@ -1,4 +1,7 @@
-
+.mobile-view {
+  margin: auto;
+  max-width: 480px;
+}
 
 
 /*

@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Product } from './products';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  private numItemsSource = new Subject<number>();
+  numItems$ = new Observable<number>((subscriber) => {
+    this.setBarNumItems = () => subscriber.next(this.items.length);
+  });
 
-  numItems$ = this.numItemsSource.asObservable();
-
-  items: Product[] = [];
+  private items: Product[] = [];
   constructor(private http: HttpClient) { }
 
   addToCart(product: Product) {
@@ -32,8 +32,5 @@ export class CartService {
     return this.http.get<{type: string, price: number}[]>('/assets/shipping.json');
   }
 
-  setBarNumItems() {
-    this.numItemsSource.next(this.items.length);
-  }
-
+  setBarNumItems!: Function;
 }
